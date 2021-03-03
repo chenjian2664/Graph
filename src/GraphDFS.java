@@ -10,7 +10,8 @@ public class GraphDFS
     private boolean[] visited;
     private List<Integer> order = new ArrayList<>();
 
-    public GraphDFS(Graph graph) {
+    public GraphDFS(Graph graph)
+    {
         this.graph = graph;
         this.visited = new boolean[graph.getV()];
 
@@ -23,7 +24,8 @@ public class GraphDFS
         }
     }
 
-    private void dfs(int v) {
+    private void dfs(int v)
+    {
         visited[v] = true;
         order.add(v);
         for (int w : graph.adj(v)) {
