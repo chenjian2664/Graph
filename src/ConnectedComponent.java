@@ -1,10 +1,12 @@
+import java.util.Arrays;
+
 /**
  * @author chenjian on 3/3/21
  */
 public class ConnectedComponent
 {
     private Graph graph;
-    private boolean[] visited;
+    private int[] visited;
 
     private int count;
 
@@ -12,30 +14,41 @@ public class ConnectedComponent
     {
         this.count = 0;
         this.graph = graph;
-        visited = new boolean[graph.getV()];
+        visited = new int[graph.getV()];
+        Arrays.fill(visited,  -1);
 
         for (int v = 0; v < graph.getV(); ++v) {
-            if (visited[v]) {
+            if (visited[v] != -1) {
                 continue;
             }
+            dfs(v, count);
             ++count;
-            dfs(v);
         }
     }
 
-    private void dfs(int v)
+    private void dfs(int v, int id)
     {
-        visited[v] = true;
+        visited[v] = id;
         for (int w : graph.adj(v)) {
-            if (visited[w]) {
+            if (visited[w] != -1) {
                 continue;
             }
-            dfs(w);
+            dfs(w, id);
         }
+    }
+
+    public boolean isConnected(int v, int w) {
+        graph.validateVertex(v);
+        graph.validateVertex(w);
+        return visited[v] == visited[w];
     }
 
     public int getCount()
     {
+        for (int i = 0; i < graph.getV(); ++i) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
         return count;
     }
 
@@ -44,5 +57,7 @@ public class ConnectedComponent
         Graph graph = new Graph("graph-3.txt");
         ConnectedComponent connectedComponent = new ConnectedComponent(graph);
         System.out.println(connectedComponent.getCount());
+        System.out.println(connectedComponent.isConnected(1, 4));
+        System.out.println(connectedComponent.isConnected(0, 5));
     }
 }
