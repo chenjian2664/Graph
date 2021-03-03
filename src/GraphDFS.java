@@ -8,7 +8,8 @@ public class GraphDFS
 {
     private Graph graph;
     private boolean[] visited;
-    private List<Integer> order = new ArrayList<>();
+    private List<Integer> pre = new ArrayList<>();
+    private List<Integer> post = new ArrayList<>();
 
     public GraphDFS(Graph graph)
     {
@@ -27,24 +28,31 @@ public class GraphDFS
     private void dfs(int v)
     {
         visited[v] = true;
-        order.add(v);
+        pre.add(v);
         for (int w : graph.adj(v)) {
             if (visited[w]) {
                 continue;
             }
             dfs(w);
         }
+        post.add(v);
     }
 
-    public List<Integer> getOrder()
+    public List<Integer> getPre()
     {
-        return order;
+        return pre;
+    }
+
+    public List<Integer> getPost()
+    {
+        return post;
     }
 
     public static void main(String[] args)
     {
         Graph graph = new Graph("graph-2.txt");
         GraphDFS graphDFS = new GraphDFS(graph);
-        System.out.println(graphDFS.getOrder());
+        System.out.println(graphDFS.getPre());
+        System.out.println(graphDFS.getPost());
     }
 }
