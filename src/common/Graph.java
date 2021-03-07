@@ -1,3 +1,5 @@
+package common;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
@@ -84,7 +86,7 @@ public class Graph
     @Override
     public String toString()
     {
-        return "AdjList{" +
+        return "depth.AdjList{" +
                 "V=" + V +
                 ", E=" + E +
                 ", adj=" + Arrays.toString(adj) +

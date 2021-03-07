@@ -1,3 +1,7 @@
+package depth;
+
+import common.Graph;
+
 import java.util.Arrays;
 
 /**

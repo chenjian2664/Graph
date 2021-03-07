@@ -1,4 +1,7 @@
+package depth;
+
 import java.util.Arrays;
+import common.Graph;
 
 /**
  * 检查图中是否有环

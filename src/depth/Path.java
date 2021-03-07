@@ -1,3 +1,7 @@
+package depth;
+
+import common.Graph;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -77,7 +81,7 @@ public class Path
 
     public static void main(String[] args)
     {
-//        Graph graph = new Graph("graph.txt");
+//        common.Graph graph = new common.Graph("graph.txt");
         Graph graph = new Graph("graph-3.txt");
         Path path = new Path(graph, 0, 6);
         System.out.println("path from 0 to 6: \n" + path.path());

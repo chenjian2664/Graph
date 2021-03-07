@@ -1,3 +1,7 @@
+package depth;
+
+import common.Graph;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -61,7 +65,7 @@ public class SingleSourcePath
 
     public static void main(String[] args)
     {
-//        Graph graph = new Graph("graph.txt");
+//        common.Graph graph = new common.Graph("graph.txt");
         Graph graph = new Graph("graph-3.txt");
         SingleSourcePath singleSourcePath = new SingleSourcePath(graph, 0);
         System.out.println("path from 0 to 6: \n" + singleSourcePath.path(6));

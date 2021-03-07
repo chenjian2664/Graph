@@ -1,8 +1,9 @@
+package depth;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -85,7 +86,7 @@ public class AdjList
     @Override
     public String toString()
     {
-        return "AdjList{" +
+        return "depth.AdjList{" +
                 "V=" + V +
                 ", E=" + E +
                 ", adj=" + Arrays.toString(adj) +
