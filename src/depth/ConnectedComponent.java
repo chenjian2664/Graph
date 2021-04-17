@@ -3,14 +3,17 @@ package depth;
 import common.Graph;
 
 import java.util.Arrays;
+import java.util.regex.MatchResult;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author chenjian on 3/3/21
  */
 public class ConnectedComponent
 {
-    private Graph graph;
-    private int[] visited;
+    private final Graph graph;
+    private final int[] visited;
 
     private int count;
 
