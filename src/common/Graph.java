@@ -12,6 +12,7 @@ import java.util.TreeSet;
  * 无向无环图
  */
 public class Graph
+        implements Cloneable
 {
     private int V;
     private int E;
@@ -75,6 +76,34 @@ public class Graph
         if (v < 0 || v >= V) {
             throw new IllegalArgumentException("Illegal argument about vertex : " + v);
         }
+    }
+
+    public void removeEdge(int v, int w)
+    {
+        validateVertex(v);
+        validateVertex(w);
+
+        adj[v].remove(w);
+        adj[w].remove(v);
+    }
+
+    @Override
+    public Object clone() {
+        try {
+            Graph cloned = (Graph) super.clone();
+            cloned.adj = new TreeSet[getV()];
+            for (int i = 0; i < getV(); ++i) {
+                cloned.adj[i] = new TreeSet<>();
+                for (int w : adj[i]) {
+                    cloned.adj[i].add(w);
+                }
+            }
+            return cloned;
+        }
+        catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public static void main(String[] args)
